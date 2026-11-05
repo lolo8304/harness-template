@@ -1,0 +1,12 @@
+node_modules/
+/vendor/npm-debug.log
+
+.env*
+!.env.example
+./target/
+
+# Generated build/package output
+dist/
+*.tgz
+
+release/
