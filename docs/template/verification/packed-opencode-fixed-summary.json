@@ -1,0 +1,20 @@
+{
+  "permissionFix": "child PWD follows requested cwd; deny/allow rules unchanged",
+  "tests": {
+    "passed": 34,
+    "failed": 0
+  },
+  "installation": "passed",
+  "shell": "passed",
+  "opencode": "blocked",
+  "providerError": {
+    "type": "provider.free-limit",
+    "status": 429
+  },
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "projectDirectory": "/private/var/folders/m4/17h8qhhs44q19w47j2w3gxd40000gn/T/vehicle-install-ppCd1b",
+  "projectRemoved": true,
+  "privateServerShutdownObserved": true,
+  "mockPortSelection": "OS-assigned port 0",
+  "sourceVehicleHarnessModified": false
+}

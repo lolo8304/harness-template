@@ -1,0 +1,84 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "docs/vehicles/opencode-instructions.md"
+  ],
+  "permissions": [
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git status*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh auth status*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "node dist/cli.js vehicles search*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "node dist/cli.js insured search*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "node dist/cli.js combined search*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "node dist/cli.js config check",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "node dist/cli.js auth status",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "vehicle-cli vehicles search*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "vehicle-cli insured search*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "vehicle-cli combined search*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "vehicle-cli config check",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "vehicle-cli auth status",
+      "effect": "allow"
+    }
+  ],
+  "commands": {
+    "vehicle-search": {
+      "description": "Search vehicles through the authenticated local CLI",
+      "template": "Use the shell tool to run the installed vehicle-cli from the project root (set the tool workdir there). Keep command text short: vehicle-cli vehicles search, vehicle-cli insured search, or vehicle-cli combined search with the required flags. Do not expand the executable to an absolute path or use node with an absolute script path. Parse the JSON output and answer briefly with only the requested facts and total; do not repeat raw JSON. Never read .env or credential storage. Request: $ARGUMENTS"
+    }
+  }
+}

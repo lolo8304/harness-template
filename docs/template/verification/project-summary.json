@@ -1,0 +1,43 @@
+{
+  "result": "passed",
+  "model": "opencode/big-pickle",
+  "catalog": "http://127.0.0.1:53062",
+  "insured": "http://127.0.0.1:53063",
+  "privateOpenCode": true,
+  "checks": [
+    {
+      "name": "catalog",
+      "command": "node dist/cli.js vehicles search --brand Tesla --as-of 2025-06-01",
+      "exit": 0,
+      "total": 2,
+      "page": 1,
+      "limit": 20,
+      "vehicleIds": [
+        "ve-001",
+        "ve-002"
+      ]
+    },
+    {
+      "name": "insured",
+      "command": "node dist/cli.js insured search --plate-number \"ZH 638871\"",
+      "exit": 0,
+      "total": 1,
+      "page": 1,
+      "limit": 20,
+      "vehicleIds": [
+        "ve-001"
+      ]
+    },
+    {
+      "name": "combined",
+      "command": "node dist/cli.js combined search --customer-number C001 --brand tes --mode match --as-of 2025-06-01 --page 2 --limit 1",
+      "exit": 0,
+      "total": 2,
+      "page": 2,
+      "limit": 1,
+      "vehicleIds": [
+        "ve-002"
+      ]
+    }
+  ]
+}

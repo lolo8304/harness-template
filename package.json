@@ -1,0 +1,47 @@
+{
+  "name": "harness-template",
+  "version": "0.1.0",
+  "description": "Reusable CLI harness template with a runnable vehicle example",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "vehicle-cli": "dist/cli.js",
+    "vehicle-mock": "dist/mock.js"
+  },
+  "exports": {
+    ".": "./dist/vehicles/client.js",
+    "./mock": "./dist/vehicles/mock.js",
+    "./common": "./dist/common/index.js",
+    "./vehicles": "./dist/vehicles/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "docs/common/*.md",
+    "docs/vehicles/*.md",
+    ".env.example",
+    "docs/template/*.md"
+  ],
+  "scripts": {
+    "build": "node bin/build.mjs",
+    "test": "npm run check:error-handling && npm run build && node --test tests/common/*.test.mjs tests/vehicles/*.test.mjs",
+    "mock": "node dist/mock.js",
+    "verify:install": "node scripts/vehicles/verify-install.mjs",
+    "prepack": "npm run build",
+    "verify:opencode": "npm run build && node scripts/vehicles/verify-opencode.mjs",
+    "check:error-handling": "node scripts/common/check-error-handling.mjs",
+    "check:static": "npm run build && npm run check:error-handling && node --test tests/vehicles/architecture.test.mjs"
+  },
+  "dependencies": {
+    "commander": "^14.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  },
+  "optionalDependencies": {
+    "@napi-rs/keyring": "^2.1.2"
+  }
+}
